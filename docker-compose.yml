@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  phpmyadmin:
+    image: 'phpmyadmin/phpmyadmin:latest'
+    container_name: mysql-phpmyadmin
+    restart: unless-stopped
+    environment:
+      - PMA_HOST=mysql-db
+      - PMA_USER=root
+      - PMA_PASSWORD=j
+    ports:
+      - '8080:80'
+      
+  db:
+    image: mysql
+    container_name: mysql-db
+    restart: unless-stopped
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./docker-compose/dbdata:/var/lib/mysql
+    ports:
+      - '4406:3306'
