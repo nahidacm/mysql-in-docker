@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   phpmyadmin:
     image: 'phpmyadmin/phpmyadmin:latest'
@@ -10,13 +10,14 @@ services:
       - PMA_PASSWORD=j
     ports:
       - '8080:80'
-      
   db:
     image: mysql
     container_name: mysql-db
     restart: unless-stopped
     volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
-      - ./docker-compose/dbdata:/var/lib/mysql
+      - './docker-compose/mysql:/docker-entrypoint-initdb.d'
+      - './docker-compose/dbdata:/var/lib/mysql'
     ports:
       - '4406:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=j
