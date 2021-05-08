@@ -1,6 +1,8 @@
 ## Installation
 
-`docker-compose up -d`
+1. Clone the repo.
+2. `cd <repo-directory>`
+3. `docker-compose up -d`
 
 ## Access phpMyAdmin
 
